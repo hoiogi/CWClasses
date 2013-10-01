@@ -8,6 +8,11 @@
 
 #import "CWEmbedWebView.h"
 
+#if !__has_feature(objc_arc)
+#error CWEmbedWebView must be built with ARC.
+// You can turn on ARC for only AFNetworking files by adding -fobjc-arc to the build phase for each of its files.
+#endif
+
 @interface CWEmbedWebView () <UIWebViewDelegate>
 {
     id<UIWebViewDelegate> _delegate;
